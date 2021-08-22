@@ -13,8 +13,8 @@
             <td>{{rentalDetail.rentalId}}</td>
             <td>{{rentalDetail.brandName}}</td>
             <td>{{rentalDetail.customerName}}</td>
-            <td>{{rentalDetail.rentDate}}</td>
-            <td>{{rentalDetail.returnDate}}</td>
+            <td>{{rentalDetail.rentDate | date:'dd/MM/yyyy'}}</td>
+            <td>{{rentalDetail.returnDate | date:'dd/MM/yyyy'}}</td>
         </tr>
     </tbody>
 </table>
