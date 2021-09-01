@@ -1,12 +1,11 @@
 <ul class="list-group mb-4">
+    <li class ="list-group-item bg-primary text-light text-center mb-1 rounded" ><strong>Renkler</strong></li>
     <li
     (click)="setCurrentColor(color)"
-    routerLink="/cardetails/color/{{ color.colorName }}"
+    routerLink="/cars/color/{{ color.colorName }}"
     *ngFor="let color of colors"
     [class]="getCurrentColorClass(color)"
     >
         {{color.colorName}}
     </li>
 </ul>
-
-<h4 *ngIf="currentColor"> {{currentColor.colorName}} seçtiniz.</h4>

@@ -28,11 +28,12 @@ export class BrandComponent implements OnInit {
     this.currentBrand = brand;
   }
 
+
   getCurrentBrandClass(brand : Brand){
     if( brand == this.currentBrand ){
-      return "list-group-item active bg-white text-dark"
+      return "list-group-item active bg-primary text-light border-secondary"
     }else{
-      return "list-group-item bg-dark text-light"
+      return "list-group-item"
     }
   }
 
@@ -43,4 +44,5 @@ export class BrandComponent implements OnInit {
       return "list-group-item bg-dark text-light"
     }
   }
+
 }

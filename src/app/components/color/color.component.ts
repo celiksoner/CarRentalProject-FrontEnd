@@ -30,9 +30,9 @@ export class ColorComponent implements OnInit {
 
   getCurrentColorClass(color : Color){
     if ( color == this.currentColor){
-      return "list-group-item active bg-white text-dark"
+      return "list-group-item active bg-primary text-light"
     }else{
-      return "list-group-item bg-dark text-light"
+      return "list-group-item"
     }
   }
 

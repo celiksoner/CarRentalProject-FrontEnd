@@ -1,12 +1,12 @@
 <ul class="list-group mb-4">
+  <li class ="list-group-item bg-primary bg-gradient text-light text-center mb-1 rounded" ><strong>Markalar</strong></li>
   <li
     (click)="setCurrentBrand(brand)"
-    routerLink="/cardetails/brand/{{ brand.brandName }}"
+    routerLink="/cars/brand/{{ brand.brandName }}"
     *ngFor="let brand of brands"
     [class]="getCurrentBrandClass(brand)"
   >
     {{ brand.brandName }}
   </li>
+  <li class="list-group-item bg-secondary text-light" routerLink="/cars">Tüm Markalar</li>
 </ul>
-
-<h4 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz</h4>
