@@ -5,21 +5,20 @@ import { CustomerService } from 'src/app/services/customer.service';
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.css']
+  styleUrls: ['./customer.component.css'],
 })
 export class CustomerComponent implements OnInit {
+  customers: Customer[] = [];
 
-  customers : Customer[] = [];
-
-  constructor(private customerService:CustomerService) { }
+  constructor(private customerService: CustomerService) {}
 
   ngOnInit(): void {
     this.getCustomer();
   }
 
-  getCustomer(){
-    this.customerService.getCustomers().subscribe(response => {
+  getCustomer() {
+    this.customerService.getCustomers().subscribe((response) => {
       this.customers = response.data;
-    })
+    });
   }
 }

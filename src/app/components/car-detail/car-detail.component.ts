@@ -11,71 +11,61 @@ import { CarImageService } from 'src/app/services/carImage.service';
   styleUrls: ['./car-detail.component.css'],
 })
 export class CarDetailComponent implements OnInit {
-  carImages:CarImage[];
-  cars:Car[] = [];
-  currentImage:CarImage;
+  carImages: CarImage[];
+  cars: Car[] = [];
+  currentImage: CarImage;
 
-  defaultPath = "https://localhost:44324";
+  defaultPath = 'https://localhost:44324';
 
-  
-  
-  
   constructor(
     private carService: CarService,
     private carImageService: CarImageService,
-    private activatedRoute : ActivatedRoute
+    private activatedRoute: ActivatedRoute
   ) {}
 
-
   ngOnInit(): void {
-
-    this.activatedRoute.params.subscribe(params=>{
-      if (params['carId']){  
-      this.getCarsByCarId(params["carId"]),
-        this.getCarImages(params["carId"])
+    this.activatedRoute.params.subscribe((params) => {
+      if (params['carId']) {
+        this.getCarsByCarId(params['carId']),
+          this.getCarImages(params['carId']);
       }
-    })
+    });
   }
 
-
-
-  getCarsByCarId(carId:number){
-    this.carService.getCarDetailsById(carId).subscribe(response=>{
+  getCarsByCarId(carId: number) {
+    this.carService.getCarDetailsById(carId).subscribe((response) => {
       this.cars = response.data;
-    })
+    });
   }
 
-  getCarImages(carId:number){
-    this.carImageService.getCarImagesByCarId(carId).subscribe( response => {
+  getCarImages(carId: number) {
+    this.carImageService.getCarImagesByCarId(carId).subscribe((response) => {
       this.carImages = response.data;
-      console.log(response)
-    })
+      console.log(response);
+    });
   }
 
-  getPath(){
+  getPath() {
     return this.defaultPath;
   }
 
-  getButtonClass(image:CarImage){
-    if (image=this.carImages[0]) {
-      return "active";
-    }
-    else{
-      return "";
+  getButtonClass(image: CarImage) {
+    if ((image = this.carImages[0])) {
+      return 'active';
+    } else {
+      return '';
     }
   }
 
-  setCurrentImageClass(image:CarImage){
+  setCurrentImageClass(image: CarImage) {
     this.currentImage = image;
   }
-  
-  getCurrentImageClass(image:CarImage){
-    if(this.carImages[0]==image){
-      return "carousel-item active";
+
+  getCurrentImageClass(image: CarImage) {
+    if (this.carImages[0] == image) {
+      return 'carousel-item active';
     } else {
-      return "carousel-item ";
+      return 'carousel-item ';
     }
   }
- 
-
 }

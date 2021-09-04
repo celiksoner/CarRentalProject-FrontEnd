@@ -1,12 +1,29 @@
+<div class="mb-3">
+  <label for="filterBrand" class="form-label"></label>
+  <input type="text" [(ngModel)]="filterBrand" class="form-control" id="filterBrand" placeholder="Marka Arama">
+  <div class="alert alert-success" *ngIf="filterBrand.length > 1" >Arama Sonucu: " {{filterBrand}} " </div>
+</div>
 <ul class="list-group mb-4">
-  <li class ="list-group-item bg-primary bg-gradient text-light text-center mb-1 rounded" ><strong>Markalar</strong></li>
+  <li
+    class="
+      list-group-item
+      bg-primary bg-gradient
+      text-light text-center
+      mb-1
+      rounded
+    "
+  >
+    <strong>Markalar</strong>
+  </li>
   <li
     (click)="setCurrentBrand(brand)"
     routerLink="/cars/brand/{{ brand.brandName }}"
-    *ngFor="let brand of brands"
+    *ngFor="let brand of brands | filterBrandPipe:filterBrand"
     [class]="getCurrentBrandClass(brand)"
   >
     {{ brand.brandName }}
   </li>
-  <li class="list-group-item bg-secondary text-light" routerLink="/cars">Tüm Markalar</li>
+  <li class="list-group-item bg-secondary text-light" routerLink="/cars">
+    Tüm Markalar
+  </li>
 </ul>

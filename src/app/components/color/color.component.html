@@ -1,11 +1,19 @@
+<div class="mb-3">
+  <label for="filterColor" class="form-label"></label>
+  <input type="text" [(ngModel)]="filterColor" class="form-control" id="filterColor" placeholder="Renk Arama">
+  <div class="alert alert-success" *ngIf="filterColor.length > 1" >Arama Sonucu: " {{filterColor}} " </div>
+</div>
+
 <ul class="list-group mb-4">
-    <li class ="list-group-item bg-primary text-light text-center mb-1 rounded" ><strong>Renkler</strong></li>
-    <li
+  <li class="list-group-item bg-primary text-light text-center mb-1 rounded">
+    <strong>Renkler</strong>
+  </li>
+  <li
     (click)="setCurrentColor(color)"
     routerLink="/cars/color/{{ color.colorName }}"
-    *ngFor="let color of colors"
+    *ngFor="let color of colors | filterColorPipe:filterColor"
     [class]="getCurrentColorClass(color)"
-    >
-        {{color.colorName}}
-    </li>
+  >
+    {{ color.colorName }}
+  </li>
 </ul>

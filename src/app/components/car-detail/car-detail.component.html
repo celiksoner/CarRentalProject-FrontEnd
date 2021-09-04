@@ -57,27 +57,35 @@
     </div>
   </div>
   <div class="col-md-4">
-      <div *ngFor="let car of cars"> 
-        <li class ="list-group-item bg-primary bg-gradient text-light text-center mb-1 rounded" ><strong>Araç Özellikleri</strong></li>         
-            <li class="list-group-item">
-              <strong>Marka: </strong>{{ car.brandName }}
-            </li>
-            <li class="list-group-item">
-              <strong>Model: </strong>{{ car.modelName }}
-            </li>
-            <li class="list-group-item">
-              <strong>Renk: </strong>{{ car.colorName }}
-            </li>
-            <li class="list-group-item">
-              <strong>Fiyat/Gün: </strong>{{ car.dailyPrice }} ₺
-            </li>
-            <li class="list-group-item">
-              <strong>Model Yılı: </strong>{{ car.modelYear }}
-            </li>
-      </div>  
-      <br>
-      <button class="col-md-12  btn btn-success">Kirala
-
-      </button>
+    <div *ngFor="let car of cars">
+      <li
+        class="
+          list-group-item
+          bg-primary bg-gradient
+          text-light text-center
+          mb-1
+          rounded
+        "
+      >
+        <strong>Araç Özellikleri</strong>
+      </li>
+      <li class="list-group-item">
+        <strong>Marka: </strong>{{ car.brandName }}
+      </li>
+      <li class="list-group-item">
+        <strong>Model: </strong>{{ car.modelName }}
+      </li>
+      <li class="list-group-item">
+        <strong>Renk: </strong>{{ car.colorName }}
+      </li>
+      <li class="list-group-item">
+        <strong>Fiyat/Gün: </strong>{{ car.dailyPrice }} ₺
+      </li>
+      <li class="list-group-item">
+        <strong>Model Yılı: </strong>{{ car.modelYear }}
+      </li>
+    </div>
+    <br />
+    <button class="col-md-12 btn btn-success">Kirala</button>
   </div>
 </div>
