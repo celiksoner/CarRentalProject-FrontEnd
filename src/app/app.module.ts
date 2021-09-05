@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 import { FilterColorPipePipe } from './pipes/filter-color-pipe.pipe';
 import { FilterBrandPipePipe } from './pipes/filter-brand-pipe.pipe';
+import { FilterCarComponent } from './components/filter-car/filter-car.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FilterBrandPipePipe } from './pipes/filter-brand-pipe.pipe';
     CarDetailComponent,
     FilterPipePipe,
     FilterColorPipePipe,
-    FilterBrandPipePipe
+    FilterBrandPipePipe,
+    FilterCarComponent
   ],
   imports: [
     BrowserModule,
