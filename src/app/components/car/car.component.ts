@@ -16,6 +16,11 @@ import { BrandService } from 'src/app/services/brand.service';
 })
 export class CarComponent implements OnInit {
   cars: Car[] = [];
+  colors:Color[]=[];
+  brands:Brand[]=[];
+
+  filterBrandName : string = "";
+  filterColorName :string = "";
 
   imgUrl: string = 'https://localhost:44324/';
   defaultImage = 'default.jpg';
@@ -29,6 +34,11 @@ export class CarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
+    this.getAllBrands();
+    this.getAllColors();
+
+
     this.activatedRoute.params.subscribe((params) => {
       if (params['brandName'] && params['colorName']) {
         this.getCarsByBrandNameAndColorName(params['brandName'], params['colorName'] );
@@ -67,4 +77,36 @@ export class CarComponent implements OnInit {
         this.cars = response.data;
       });
   }
+
+  getAllBrands(){
+    this.brandService.getBrands().subscribe( response => {
+      this.brands = response.data;
+    })
+  }
+
+  getAllColors(){
+    this.colorService.getColors().subscribe( response => {
+      this.colors = response.data;
+    })
+  }
+
+  getSelectedBrand(brandName:string){
+    if(this.filterBrandName==brandName){
+      return true ;
+    }
+    else{
+      return false;
+    }
+
+  }
+  getSelectedColor(colorName:string){
+    if(this.filterColorName==colorName){
+      return true ;
+    }
+    else{
+      return false;
+    }
+
+  }
+
 }

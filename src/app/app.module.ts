@@ -11,13 +11,15 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { RentalDetailComponent } from './components/rental-detail/rental-detail.component';
 import { CarComponent } from './components/car/car.component';
-import { CarDetailComponent } from './components/car-detail/car-detail.component';
+import { CarDetailComponent } from './components/car/car-detail/car-detail.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 import { FilterColorPipePipe } from './pipes/filter-color-pipe.pipe';
 import { FilterBrandPipePipe } from './pipes/filter-brand-pipe.pipe';
-import { FilterCarComponent } from './components/filter-car/filter-car.component';
+import { RentalAddComponent } from './components/rental-add/rental-add.component';
+import { CarAddComponent } from './components/car/car-add/car-add/car-add.component';
+import { CarListComponent } from './components/car/car-list/car-list.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +35,16 @@ import { FilterCarComponent } from './components/filter-car/filter-car.component
     FilterPipePipe,
     FilterColorPipePipe,
     FilterBrandPipePipe,
-    FilterCarComponent
+    RentalAddComponent,
+    CarAddComponent,
+    CarListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

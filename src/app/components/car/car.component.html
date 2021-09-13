@@ -1,5 +1,29 @@
+  <div class="row">
+    <div class="col-md-3">
+      <select [(ngModel)]="filterBrandName" class="form-select" aria-placeholder="Brands">
+        <option value="">Marka Seç</option>
+        <option *ngFor="let brand of brands" [value]="brand.brandName" [selected]="getSelectedBrand(brand.brandName)">
+          {{brand.brandName}}</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <select [(ngModel)]="filterColorName" class="form-select" aria-label="Colors">
+        <option value="">Renk Seç</option>
+        <option *ngFor="let color of colors" [value]="color.colorName" [selected]="getSelectedColor(color.colorName)">
+          {{color.colorName}}</option>
+      </select>
+    </div>
+    
+      <button id="filt1" routerLink="/cars/brand/{{filterBrandName}}/color/{{filterColorName}}"
+       type="button"
+        class="col-md-3 btn btn-danger">
+        Filter
+      </button>
 
-<app-filter-car></app-filter-car>
+      <button id="filt2" routerLink="/cars" type="button" class="col-md-3 btn btn-dark">Clear</button>
+      <p></p>
+   
+  </div>
 
 <div class="row">
   <div
@@ -49,7 +73,7 @@
       <div class="card-body">
         <div class="d-flex action justify-content-between">
           <a href="" class="btn btn-success">Kirala</a>
-          <a class="btn btn-primary">Detaylar</a>
+          <a class="btn btn-primary" routerLink="/cars/car-detail/{{ car.carId }}">Detaylar</a>
         </div>
       </div>
     </div>

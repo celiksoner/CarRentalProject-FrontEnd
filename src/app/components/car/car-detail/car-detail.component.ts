@@ -12,7 +12,7 @@ import { CarImageService } from 'src/app/services/carImage.service';
 })
 export class CarDetailComponent implements OnInit {
   carImages: CarImage[];
-  cars: Car[] = [];
+  cars: Car[];
   currentImage: CarImage;
 
   defaultPath = 'https://localhost:44324';
